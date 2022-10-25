@@ -11,7 +11,7 @@ const Courses = () => {
             <div className=" ">
                 <div className="hero-content flex-col lg:flex-row">
 
-                    <div className='grid gap-2 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                    <div className='grid gap-4 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                         {
                             allCourses.map(course => <CourseCard
                                 key={course.id}
@@ -30,7 +30,7 @@ const Courses = () => {
 
                         </div>
                     </div>
-                    <div className="divide-y divide-gray-700">
+                    <div className="divide-y divide-gray-700 items-center">
                         <ul className="pt-2 pb-4 space-y-1 text-xl">
                             <li className="dark:bg-gray-800 dark:text-gray-50 ">
                                 {
