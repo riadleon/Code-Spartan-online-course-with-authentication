@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
     const allCourses = useLoaderData();
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -22,7 +23,7 @@ const Courses = () => {
                                 <li className="dark:bg-gray-800 dark:text-gray-50">
                                     {
                                         allCourses.map(course => <p key={course.id}>
-                                            <Link to={`/courses/:${course.id}`}>{course.name}</Link>
+                                            <Link to='/courses'>{course.name}</Link>
                                         </p>)
                                     }
                                 </li>
