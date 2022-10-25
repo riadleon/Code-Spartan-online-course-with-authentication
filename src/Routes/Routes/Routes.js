@@ -4,6 +4,8 @@ import Blog from "../../pages/Blog/Blog";
 import Courses from "../../pages/Courses/Courses";
 import Faq from "../../pages/FAQ/Faq";
 import Home from "../../pages/Home/Home";
+import Login from "../../pages/Login/Login/Login";
+import Register from "../../pages/Login/Register/Register";
 import CourseDetails from "../../pages/Others/CourseDetails/CourseDetails";
 import ErrorPage from "../../pages/Shared/ErrorPage/ErrorPage";
 
@@ -38,6 +40,14 @@ export const routes = createBrowserRouter([
             {
                 path: "/faq",
                 element: <Faq></Faq>,
+            },
+            {
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/register",
+                element: <Register></Register>,
             },
         ]
     }
