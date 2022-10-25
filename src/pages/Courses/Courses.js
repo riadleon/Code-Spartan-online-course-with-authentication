@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import CourseCard from '../Shared/CourseCard/CourseCard';
 
 const Courses = () => {
     const allCourses = useLoaderData();
@@ -31,10 +32,13 @@ const Courses = () => {
                             </ul>
                         </div>
                     </div>
-                    <div>
-                        <h1 className="text-5xl font-bold">Box Office News!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+                    <div className='grid grid-cols-3 gap-2'>
+                        {
+                            allCourses.map(course => <CourseCard
+                            key={course.id}
+                            course={course}
+                            ></CourseCard>)
+                        }
                     </div>
                 </div>
             </div>
