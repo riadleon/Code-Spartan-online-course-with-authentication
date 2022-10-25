@@ -11,11 +11,11 @@ export const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('https://code-spartans-server.vercel.app/courses')
             },
             {
-                path: "/courses",
-                element: <Courses></Courses>
+                path: "/courses/:id",
+                element: <Courses></Courses>,
+                loader: ({ params }) => fetch(`https://code-spartans-server.vercel.app/courses/${params.id}`)
             },
         ]
     }
