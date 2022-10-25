@@ -9,11 +9,11 @@ const Main = () => {
         <div className='body'>
             <Header></Header>
 
-            
-                <Outlet></Outlet>
+
+            <Outlet></Outlet>
 
 
-           
+
             <Footer></Footer>
         </div>
     );
