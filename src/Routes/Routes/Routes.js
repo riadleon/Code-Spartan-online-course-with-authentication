@@ -8,6 +8,7 @@ import Login from "../../pages/Login/Login/Login";
 import Register from "../../pages/Login/Register/Register";
 import CourseDetails from "../../pages/Others/CourseDetails/CourseDetails";
 import ErrorPage from "../../pages/Shared/ErrorPage/ErrorPage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -30,8 +31,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/courses/:id",
-                element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`https://code-spartans-server.vercel.app/courses/${params.id}`)
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://code-spartans-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: "/blog",
