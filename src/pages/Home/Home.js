@@ -12,8 +12,8 @@ const Home = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-7xl font-extrabold  ">Hello there</h1>
-                        <p className="mb-5 text-xl">Welcome to the most efficient learning site in Bangladesh Right now. People are now get more privilege. Code Spartan Academy Helped it so much.</p>
+                        <h1 className="mb-5 text-7xl font-extrabold text-cyan-300 ">Hello there</h1>
+                        <p className="mb-5 text-xl ">Welcome to the most efficient learning site in Bangladesh Right now. People are now get more privilege. Code Spartan Academy Helped it so much.</p>
                         <Link to='/courses'><button className="btn btn-primary">Get Started</button></Link>
                     </div>
                 </div>

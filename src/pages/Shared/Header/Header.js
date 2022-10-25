@@ -9,7 +9,7 @@ const Header = () => {
     const activeChartLink = 'p-3 rounded-b-xl bg-blue-500 text-black font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
     const normalLink = '';
     return (
-        <div className='font-bold text-gray-900  px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full-xl md:px-24 lg:px-8 bg-transparent '>
+        <div className=' text-cyan-300  px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full-xl md:px-24 lg:px-8 bg-transparent '>
             <div className='relative flex items-center justify-between'>
                 <NavLink
                     to='/'
@@ -17,7 +17,7 @@ const Header = () => {
                     title='Quiz Hero'
                     className='inline-flex items-center'
                 >
-                    <img className='flex-shrink-0 w-8 h-8 rounded-full text-gray-900' src={logo} alt="" />
+                    <img className='flex-shrink-0 w-8 h-8 rounded-full text-cyan-300' src={logo} alt="" />
                     <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
                         Code Spartan
                     </span>
@@ -89,10 +89,10 @@ const Header = () => {
                     <button
                         aria-label='Open Menu'
                         title='Open Menu'
-                        className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
+                        className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50 '
                         onClick={() => setIsMenuOpen(true)}
                     >
-                        <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+                        <svg className='w-5 text-cyan-300' viewBox='0 0 24 24'>
                             <path
                                 fill='currentColor'
                                 d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
