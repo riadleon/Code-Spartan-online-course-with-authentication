@@ -11,9 +11,10 @@ const CourseDetails = () => {
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
+                    <h2 className='text-4xl'>{name}</h2>
                     <h1 className='text-6xl'>${price}</h1>
-                    <h2 className="card-title">{title}</h2>
-                    <p>{name}</p>
+                    <h2 className="card-title ">{title}</h2>
+
                     <div className="card-actions">
                         <Link to='/courses'> <button className="btn btn-danger">Go Back</button></Link>
                         <button className="btn btn-primary">Buy Now</button>

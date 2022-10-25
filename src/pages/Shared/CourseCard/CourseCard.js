@@ -6,7 +6,7 @@ const CourseCard = ({ course }) => {
     console.log(course);
     return (
         <div>
-            <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+            <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 ">
                 <div className="flex justify-between pb-4 border-bottom">
                     <div className="flex items-center">
                         <Link className='className="mb-0 capitalize dark:text-gray-100"'>{name}</Link>
