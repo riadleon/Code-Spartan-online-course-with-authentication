@@ -39,9 +39,9 @@ const Header = () => {
                     <li>
 
                         <div className='section pb-5 pt-5 pt-sm-2 text-center'>
-                            <h6 class="mb-0 font-medium"><span>Light </span><span>Dark</span></h6>
-                            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
-                            <label for="reg-log"></label>
+                            <h6 className="mb-0 font-medium"><span>Light </span><span>Dark</span></h6>
+                            <input className="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                            <label htmlFor="reg-log"></label>
                         </div>
 
 
@@ -87,26 +87,7 @@ const Header = () => {
                             BLOG
                         </NavLink>
                     </li>
-                    {/* <li>
-                        <NavLink
-                            to='/login'
-                            aria-label='login'
-                            title='login'
-                            className={({ isActive }) => isActive ? activeChartLink : normalLink}
-                        >
-                            Login
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/register'
-                            aria-label='register'
-                            title='register'
-                            className={({ isActive }) => isActive ? activeChartLink : normalLink}
-                        >
-                            Register
-                        </NavLink>
-                    </li> */}
+                  
                     {
                         user?.uid ?
                             <>
@@ -119,14 +100,15 @@ const Header = () => {
                                 <Link className={({ isActive }) => isActive ? activeChartLink : normalLink} to='/register'>Register</Link>
                             </>
                     }
-                    
+
 
                     <>
                         <Link to="/profile">
                         {user?.photoURL ?
                             <img style={{ height: '30px' }}
                                 roundedCircle
-                                src={user?.photoURL}>
+                                src={user?.photoURL}
+                                alt = ''>
                             </img>
                             : <FaUserAlt></FaUserAlt>
                         }
