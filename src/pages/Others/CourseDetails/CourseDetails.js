@@ -17,7 +17,8 @@ const CourseDetails = () => {
 
                     <div className="card-actions">
                         <Link to='/courses'> <button className="btn btn-danger">Go Back</button></Link>
-                        <button className="btn btn-primary">Buy Now</button>
+                        <Link to='/thankyou'> <button className="btn btn-primary">Buy Now</button></Link>
+                        
                     </div>
                 </div>
             </div>

@@ -1,12 +1,35 @@
 import React from 'react';
 import { FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 
 
 const CourseCard = ({ course }) => {
     const { img, instructor, title, rating, name, price, id } = course;
     console.log(course);
+
+    const onButtonClick = () => {
+        // using Java Script method to get PDF file
+        fetch('SamplePDF.pdf').then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'SamplePDF.pdf';
+                alink.click();
+            })
+        })
+    }
+
+
+
+
     return (
         <div>
             <div className=" rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 ">
@@ -15,7 +38,12 @@ const CourseCard = ({ course }) => {
                         <Link className='className="mb-0 capitalize dark:text-gray-100"'>{name}</Link>
                     </div>
 
-                    <button className='text-red-600 text-3xl mt-2'> <FaFilePdf></FaFilePdf></button>
+                    <Pdf targetRef={ref} filename="code-example.pdf">
+                        {({ toPdf }) => <button onClick={onButtonClick} className='text-red-600 text-3xl mt-2'> <FaFilePdf></FaFilePdf> </button>}
+                    </Pdf>
+
+
+
 
                 </div>
                 <img src={img} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />

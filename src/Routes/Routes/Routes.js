@@ -7,7 +7,9 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login/Login";
 import Register from "../../pages/Login/Register/Register";
 import CourseDetails from "../../pages/Others/CourseDetails/CourseDetails";
+import LocationLeaflet from "../../pages/Others/LocationLeaflet/LocationLeaflet";
 import Profile from "../../pages/Others/Profile/Profile";
+import ThanksGiving from "../../pages/Others/ThanksGiving/ThanksGiving";
 import ErrorPage from "../../pages/Shared/ErrorPage/ErrorPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -54,6 +56,14 @@ export const routes = createBrowserRouter([
             {
                 path: "/profile",
                 element: <Profile></Profile>,
+            },
+            {
+                path: "/map",
+                element: <LocationLeaflet></LocationLeaflet>,
+            },
+            {
+                path: "/thankyou",
+                element: <ThanksGiving></ThanksGiving>,
             },
         ]
     }

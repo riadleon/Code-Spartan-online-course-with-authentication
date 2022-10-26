@@ -7,11 +7,11 @@ const Courses = () => {
     const allCourses = useLoaderData();
 
     return (
-        <div className='flex align-middle content-center sm:flex-row'>
+        <div className='flex align-middle content-center '>
             <div className=" ">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content ">
 
-                    <div className='w-4/5 h-auto  grid gap-4 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                    <div className='w-4/5 h-auto  grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                         {
                             allCourses.map(course => <CourseCard
                                 key={course.id}
@@ -23,8 +23,8 @@ const Courses = () => {
             </div>
             <div>
                 <div className="w-full h- p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100">
-                    <div className="flex items-center p-2 space-x-4">
-                        <img className="w-12 h-12 rounded-full dark:bg-gray-500" src={logo} alt="" />
+                    <div className="">
+                        <img className="text-center w-12 h-12 rounded-full dark:bg-gray-500" src={logo} alt="" />
                         <div>
                             <h2 className="text-lg font-semibold">Code Spartans</h2>
 
