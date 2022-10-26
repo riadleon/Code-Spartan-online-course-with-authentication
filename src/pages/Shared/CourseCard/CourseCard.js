@@ -15,7 +15,7 @@ const CourseCard = ({ course }) => {
                         <Link className='className="mb-0 capitalize dark:text-gray-100"'>{name}</Link>
                     </div>
 
-                 <button> <FaFilePdf></FaFilePdf></button>
+                    <button className='text-red-600 text-3xl mt-2'> <FaFilePdf></FaFilePdf></button>
 
                 </div>
                 <img src={img} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
