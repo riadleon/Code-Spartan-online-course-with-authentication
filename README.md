@@ -2,7 +2,7 @@
 
 ## Live Site:
 
-Client :
+Client : https://code-spartans-client.web.app/
 Server: https://code-spartans-server.vercel.app/courses
 
 ## About the website:
