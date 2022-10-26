@@ -1,8 +1,11 @@
 import React from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
+
 const CourseCard = ({ course }) => {
-    const { img, instructor, title, rating, name, price,id } = course;
+    const { img, instructor, title, rating, name, price, id } = course;
     console.log(course);
     return (
         <div>
@@ -11,7 +14,9 @@ const CourseCard = ({ course }) => {
                     <div className="flex items-center">
                         <Link className='className="mb-0 capitalize dark:text-gray-100"'>{name}</Link>
                     </div>
-                  <Link>PDF</Link>
+
+                 <button> <FaFilePdf></FaFilePdf></button>
+
                 </div>
                 <img src={img} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
                 <div className="flex flex-col justify-between p-6 space-y-8">

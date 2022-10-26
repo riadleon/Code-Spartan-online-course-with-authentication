@@ -104,7 +104,7 @@ const Header = () => {
 
 
                     <>
-                        <Link to="/profile">
+                        <Link to="/profile"  className={({ isActive }) => isActive ? activeLink : normalLink}>
                             {user?.photoURL ?
                                 <img style={{ height: '30px' }}
                                     roundedCircle
