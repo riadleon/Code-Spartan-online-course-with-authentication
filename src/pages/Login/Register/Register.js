@@ -2,11 +2,42 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle, FaGithub, FaFacebook, FaTwitch, FaTwitter } from 'react-icons/fa';
+import ReactTooltip from 'react-tooltip'
+import { Tooltip } from 'react-bootstrap';
+import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import app from '../../../firebase/firebase.config';
 
 const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUserProfile, verifyEmail, providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+    const gitProvider = new GithubAuthProvider();
+    const auth = getAuth(app)
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, gitProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+
+
+    }
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -61,7 +92,6 @@ const Register = () => {
                     <div class="row full-height justify-content-center">
                         <div class="col-12 text-center align-self-center py-5">
                             <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                                <h6 class="mb-0 pb-3"><span>Register</span></h6>
                                 <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
                                 <div class="card-3d-wrap mx-auto">
                                     <div class="card-3d-wrapper">
@@ -90,10 +120,15 @@ const Register = () => {
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <button class="btn mt-4">Register</button>
-                                                    <p class="mb-0 mt-4 text-center"><Link to='/register' class="link">Do not have an account? </Link></p>
+                                                    <p class="mb-0 mt-4 text-center"><Link to='/login' class="link">Already Have an account? </Link></p>
                                                     <p class="mb-0 mt-4 text-center">
                                                         {error}
                                                     </p>
+                                                    <div className='flex'>
+                                                        <button onClick={handleGoogleSignIn} className="btn btn-primary mb-14 mr-6 " data-tip="Sign with Google"><FaGoogle></FaGoogle></button>
+                                                        <button onClick={handleGithubSignIn} className="btn btn-primary mb-14  mr-14" data-tip="Sign with github"><FaGithub></FaGithub></button>
+                                                        <Tooltip></Tooltip>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

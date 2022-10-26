@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../../assests/logo/logo.png'
 import './Header.css'
 import { FaUserAlt } from 'react-icons/fa';
+import ReactTooltip from 'react-tooltip'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -87,7 +88,7 @@ const Header = () => {
                             BLOG
                         </NavLink>
                     </li>
-                  
+
                     {
                         user?.uid ?
                             <>
@@ -104,22 +105,25 @@ const Header = () => {
 
                     <>
                         <Link to="/profile">
-                        {user?.photoURL ?
-                            <img style={{ height: '30px' }}
-                                roundedCircle
-                                src={user?.photoURL}
-                                alt = ''>
-                            </img>
-                            : <FaUserAlt></FaUserAlt>
-                        }
-                    </Link>
+                            {user?.photoURL ?
+                                <img style={{ height: '30px' }}
+                                    roundedCircle
+                                    src={user?.photoURL}
+                                    alt=''
+                                    data-tip="go to profile">
+                                </img>
+                                : <FaUserAlt></FaUserAlt>
+
+                            }
+                            <ReactTooltip />
+                        </Link>
                     </>
 
 
 
 
                 </ul>
-                <div className='lg:hidden'>
+                <div className='lg:hidden '>
                     <button
                         aria-label='Open Menu'
                         title='Open Menu'
@@ -142,8 +146,8 @@ const Header = () => {
                         </svg>
                     </button>
                     {isMenuOpen && (
-                        <div className='absolute top-0 left-0 w-full'>
-                            <div className='p-5 bg-white border rounded shadow-sm'>
+                        <div className='top-0 left-0 w-full'>
+                            <div className='p-5 bg-transparent border rounded shadow-sm'>
                                 <div className='flex items-center justify-between mb-4'>
                                     <div>
                                         <NavLink
@@ -183,6 +187,39 @@ const Header = () => {
                                 </div>
                                 <nav>
                                     <ul className='space-y-4'>
+                                        {
+                                            user?.uid ?
+                                                <>
+                                                    <span>{user?.displayName}</span>
+                                                    <button onClick={handleLogOut} variant="light" >Log out</button>
+                                                </>
+                                                :
+                                                <>
+                                                    <Link className={({ isActive }) => isActive ? activeChartLink : normalLink} to='/login'>Login</Link>
+                                                    <Link className={({ isActive }) => isActive ? activeChartLink : normalLink} to='/register'>Register</Link>
+                                                </>
+                                        }
+
+
+                                        <>
+                                            <Link to="/profile">
+                                                {user?.photoURL ?
+                                                    <img style={{ height: '30px' }}
+                                                        roundedCircle
+                                                        src={user?.photoURL}
+                                                        alt=''
+                                                        data-tip="go to profile">
+                                                    </img>
+                                                    : <FaUserAlt></FaUserAlt>
+
+                                                }
+                                                <ReactTooltip />
+                                            </Link>
+                                        </>
+
+
+
+
                                         <li>
                                             <NavLink
 
