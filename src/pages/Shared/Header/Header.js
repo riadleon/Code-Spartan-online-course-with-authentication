@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider'
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
 import logo from '../../../assests/logo/logo.png'
 import './Header.css'
+import { FaUserAlt } from 'react-icons/fa';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { user, logOut } = useContext(AuthContext);
     const activeLink = 'p-3 rounded-b-xl bg-blue-500 text-black font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400';
     const activeChartLink = 'p-3 rounded-b-xl bg-blue-500 text-black font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
     const normalLink = '';
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <div className=' text-cyan-300  px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full-xl md:px-24 lg:px-8 bg-transparent '>
             <div className='relative flex items-center justify-between'>
@@ -28,14 +37,14 @@ const Header = () => {
                         <label for="reg-log"></label> */}
                 <ul className='flex items-center hidden space-x-8 lg:flex'>
                     <li>
-                        
-                            <div className='section pb-5 pt-5 pt-sm-2 text-center'>
-                                <h6 class="mb-0"><span>Light </span><span>Dark</span></h6>
-                                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
-                                <label for="reg-log"></label>
-                            </div>
 
-                        
+                        <div className='section pb-5 pt-5 pt-sm-2 text-center'>
+                            <h6 class="mb-0 font-medium"><span>Light </span><span>Dark</span></h6>
+                            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                            <label for="reg-log"></label>
+                        </div>
+
+
                     </li>
                     <li>
                         <NavLink
@@ -78,7 +87,7 @@ const Header = () => {
                             BLOG
                         </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink
                             to='/login'
                             aria-label='login'
@@ -97,7 +106,36 @@ const Header = () => {
                         >
                             Register
                         </NavLink>
-                    </li>
+                    </li> */}
+                    {
+                        user?.uid ?
+                            <>
+                                <span>{user?.displayName}</span>
+                                <button onClick={handleLogOut} variant="light" >Log out</button>
+                            </>
+                            :
+                            <>
+                                <Link className={({ isActive }) => isActive ? activeChartLink : normalLink} to='/login'>Login</Link>
+                                <Link className={({ isActive }) => isActive ? activeChartLink : normalLink} to='/register'>Register</Link>
+                            </>
+                    }
+                    
+
+                    <>
+                        <Link to="/profile">
+                        {user?.photoURL ?
+                            <img style={{ height: '30px' }}
+                                roundedCircle
+                                src={user?.photoURL}>
+                            </img>
+                            : <FaUserAlt></FaUserAlt>
+                        }
+                    </Link>
+                    </>
+
+
+
+
                 </ul>
                 <div className='lg:hidden'>
                     <button
@@ -222,7 +260,7 @@ const Header = () => {
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
