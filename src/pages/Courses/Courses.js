@@ -11,7 +11,7 @@ const Courses = () => {
             <div className=" ">
                 <div className="hero-content flex-col lg:flex-row">
 
-                    <div className='grid gap-4 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                    <div className='w-4/5 h-auto  grid gap-4 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                         {
                             allCourses.map(course => <CourseCard
                                 key={course.id}

@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,7 +8,7 @@ import './Login.css'
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn, setLoading, passReset } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -42,6 +43,18 @@ const Login = () => {
                 setLoading(false);
             })
     }
+    const handlePasswordChange = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        passReset(email)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Reset email sent successfully')
+            })
+            .catch(error => console.error(error))
+    }
 
     return (
 
@@ -72,6 +85,7 @@ const Login = () => {
                                                     </div>
                                                     <button className="btn mt-4">Submit</button>
                                                     <p className="mb-0 mt-4 text-center"><Link to='/register' className="link">Do not have an account? </Link></p>
+                                                    <p className="mb-0 mt-4 text-center"><Link onClick={handlePasswordChange}>Forgot your password?</Link></p>
                                                     <p className="mb-0 mt-4 text-center">
                                                         {error}
                                                     </p>
