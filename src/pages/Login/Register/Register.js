@@ -33,7 +33,7 @@ const Register = () => {
         signInWithPopup(auth, gitProvider)
             .then(result => {
                 const user = result.user;
-
+                toast.success('Github logged in successfully')
                 console.log(user);
             })
             .catch(error => console.error(error))

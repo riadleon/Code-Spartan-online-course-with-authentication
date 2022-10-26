@@ -93,7 +93,7 @@ const Header = () => {
                         user?.uid ?
                             <>
                                 <span>{user?.displayName}</span>
-                                <button onClick={handleLogOut} variant="light" >Log out</button>
+                                <button className={({ isActive }) => isActive ? activeChartLink : normalLink} onClick={handleLogOut} variant="light" >Log out</button>
                             </>
                             :
                             <>
@@ -104,7 +104,7 @@ const Header = () => {
 
 
                     <>
-                        <Link to="/profile"  className={({ isActive }) => isActive ? activeLink : normalLink}>
+                        <Link to="/profile" className={({ isActive }) => isActive ? activeLink : normalLink}>
                             {user?.photoURL ?
                                 <img style={{ height: '30px' }}
                                     roundedCircle
