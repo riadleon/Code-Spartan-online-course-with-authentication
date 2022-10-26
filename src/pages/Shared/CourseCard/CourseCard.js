@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFilePdf } from 'react-icons/fa';
+import { FaFilePdf, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
@@ -50,9 +50,9 @@ const CourseCard = ({ course }) => {
                 <div className="flex flex-col justify-between p-6 space-y-8">
                     <div className="space-y-2">
                         <h2 className="text-3xl font-semibold tracking-wide">{title}</h2>
-                        <p className="dark:text-gray-100"> Instructor: {instructor}</p>
+                        <p className="dark:text-gray-100"><span>&#8226;</span> Instructor: {instructor}</p>
+                        <p className="dark:text-gray-100"><span>&#8226;</span> <strong>Price: ${price}</strong> </p>
                         <p className="dark:text-gray-100">{rating.number}</p>
-                        <p className="dark:text-gray-100"> <strong>Price: ${price}</strong> </p>
                     </div>
                     <Link to={`/courses/${id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900">Get premium Access</button></Link>
                 </div>

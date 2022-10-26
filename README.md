@@ -1,3 +1,33 @@
+## Website Name: Code Spartan
+
+## Live Site:
+
+Client :
+Server: https://code-spartans-server.vercel.app/courses
+
+## About the website:
+(•) Its a Online learning website
+(•) Anybody around the world can visit it and learn.
+(•) Its responsive and mobile friendly.
+(•) You can switch in to dark themes quite easily.
+(•) If you have Any Query just contact us
+
+
+## Frameworks and libraries :
+
+(•) React js
+(•) tailwind css
+(•) react tootip
+(•) react-to-pdf
+(•) react-hot-toaster
+(•) react-icons
+(•) react-leaflet
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
